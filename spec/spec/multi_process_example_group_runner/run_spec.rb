@@ -1,19 +1,19 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 require 'stringio'
 
-describe Paralyze::MultiProcessExampleGroupRunner, "when run after being specified as a custom runner in Options" do  
-  before(:each) do
-    @out = StringIO.new
-    @err = StringIO.new
-    @parser = Spec::Runner::OptionParser.new(@err, @out)
-  end
-  
-  it "should be used" do
-    @parser.parse(["--runner", "Paralyze::MultiProcessExampleGroupRunner"])
-    options = @parser.options
-    options.run_examples
-  end
-end
+# describe Paralyze::MultiProcessExampleGroupRunner, "when run after being specified as a custom runner in Options" do  
+#   before(:each) do
+#     @out = StringIO.new
+#     @err = StringIO.new
+#     @parser = Spec::Runner::OptionParser.new(@err, @out)
+#   end
+#   
+#   it "should be used" do
+#     @parser.parse(["--runner", "Paralyze::MultiProcessExampleGroupRunner"])
+#     options = @parser.options
+#     options.run_examples
+#   end
+# end
 
 # describe MultiProcessExampleGroupRunner, ".new" do
 #   # it_should_behave_like "sandboxed rspec_options"
