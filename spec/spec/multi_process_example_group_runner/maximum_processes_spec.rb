@@ -7,8 +7,8 @@ describe Paralyze::MultiProcessExampleGroupRunner, "#maximum_processes" do
       @multi_process_example_group_runner = Paralyze::MultiProcessExampleGroupRunner.new({})
     end
     
-    it "should be 1" do
-      @multi_process_example_group_runner.maximum_processes.should == 1
+    it "should be Paralyze::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES" do
+      @multi_process_example_group_runner.maximum_processes.should == Paralyze::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES
     end
   end
   
@@ -17,8 +17,8 @@ describe Paralyze::MultiProcessExampleGroupRunner, "#maximum_processes" do
       @multi_process_example_group_runner = Paralyze::MultiProcessExampleGroupRunner.new({}, nil)
     end
     
-    it "should be 1" do
-      @multi_process_example_group_runner.maximum_processes.should == 1
+    it "should be Paralyze::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES" do
+      @multi_process_example_group_runner.maximum_processes.should == Paralyze::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES
     end
   end
   
