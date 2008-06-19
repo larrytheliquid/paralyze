@@ -2,8 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Paralyze::MultiProcessExampleGroupRunner, "#spec_file_paths" do
   before(:each) do
-    options = [SpecHelper.fixtures_path,"-p","**/*.rb"]
-    
+    options = [SpecHelper.fixtures_path,"-p","**/*.rb"]    
     @multi_process_example_group_runner = Paralyze::MultiProcessExampleGroupRunner.new(options)    
   end
   
