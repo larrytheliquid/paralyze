@@ -20,9 +20,17 @@ module Paralyze
       def concurrent_processes
         [maximum_processes, spec_file_paths.size].min
       end
+      
+      def fork(&block)
+        Process.fork(&block)
+      end
     
       def spec_file_paths
         options.files_to_load
+      end
+      
+      def child_output_path(pid)        
+        "default.#{pid}.paralyze"
       end
     end
   end

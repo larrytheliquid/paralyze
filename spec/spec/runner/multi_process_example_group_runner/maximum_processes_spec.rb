@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#maximum_processes" do
-  
+describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#maximum_processes" do  
   describe "for an instance passed nothing" do
     before(:each) do
       @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([])
@@ -35,6 +34,5 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#maximum_processes" 
       @multi_process_example_group_runner.maximum_processes = 7331
       @multi_process_example_group_runner.maximum_processes.should == 7331
     end
-  end
-  
+  end  
 end
