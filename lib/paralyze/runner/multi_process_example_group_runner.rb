@@ -1,7 +1,7 @@
 module Paralyze
   module Runner
     # Influenced by MultiProcessSpecRunner in SeleniumGrid
-    class MultiProcessExampleGroup
+    class MultiProcessExampleGroupRunner
       DEFAULT_MAXIMUM_PROCESSES = 1
       attr_accessor :maximum_processes, :options
       

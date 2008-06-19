@@ -1,30 +1,30 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe Paralyze::Runner::MultiProcessExampleGroup, "#maximum_processes" do
+describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#maximum_processes" do
   
   describe "for an instance passed nothing" do
     before(:each) do
-      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroup.new([])
+      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([])
     end
     
-    it "should be Paralyze::Runner::MultiProcessExampleGroup::DEFAULT_MAXIMUM_PROCESSES" do
-      @multi_process_example_group_runner.maximum_processes.should == Paralyze::Runner::MultiProcessExampleGroup::DEFAULT_MAXIMUM_PROCESSES
+    it "should be Paralyze::Runner::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES" do
+      @multi_process_example_group_runner.maximum_processes.should == Paralyze::Runner::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES
     end
   end
   
   describe "for an instance passed nil" do
     before(:each) do
-      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroup.new([], nil)
+      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([], nil)
     end
     
-    it "should be Paralyze::Runner::MultiProcessExampleGroup::DEFAULT_MAXIMUM_PROCESSES" do
-      @multi_process_example_group_runner.maximum_processes.should == Paralyze::Runner::MultiProcessExampleGroup::DEFAULT_MAXIMUM_PROCESSES
+    it "should be Paralyze::Runner::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES" do
+      @multi_process_example_group_runner.maximum_processes.should == Paralyze::Runner::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES
     end
   end
   
   describe "for an instance passed a number" do
     before(:each) do
-      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroup.new([], 1337)
+      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([], 1337)
     end
     
     it "should be what was initialized" do
