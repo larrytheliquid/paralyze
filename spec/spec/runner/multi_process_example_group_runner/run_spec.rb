@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe Paralyze::MultiProcessExampleGroupRunner, "#run" do  
+describe Paralyze::Runner::MultiProcessExampleGroup, "#run" do  
   before(:all) do
     @original_rspec_options = $rspec_options
   end
@@ -11,7 +11,7 @@ describe Paralyze::MultiProcessExampleGroupRunner, "#run" do
   end
   
   def new_runner(*opts)
-    new_runner = Paralyze::MultiProcessExampleGroupRunner.new(opts)    
+    new_runner = Paralyze::Runner::MultiProcessExampleGroup.new(opts)    
     $rspec_options = new_runner.options
     new_runner
   end

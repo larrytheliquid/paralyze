@@ -9,10 +9,10 @@ class Array
       end
     end
     index = 0
-    partitions.map do |p| 
+    partitions.map do |partition| 
       current_index = index
-      index += p.size
-      self[current_index...(p.size + current_index)] 
+      index += partition.size
+      self[current_index...(partition.size + current_index)] 
     end
   end
 end
