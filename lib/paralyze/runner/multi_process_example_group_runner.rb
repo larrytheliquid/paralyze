@@ -21,8 +21,8 @@ module Paralyze
         [maximum_processes, spec_file_paths.size].min
       end
       
-      def fork(&block)
-        Process.fork(&block)
+      def fork
+        Process.fork { begin yield ensure Process.exit!(0) end }
       end
     
       def spec_file_paths
