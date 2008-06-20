@@ -22,11 +22,16 @@ module Paralyze
       end
     
       def run
+        # enumerate through all example_group_runner_file_path_partitions
+        # test with mock forker
+        # fork child_runners and run them
+        # reduce success variable
         options.run_examples
       end
       
       def child_runner(pid, file_paths)
-        # Spec::Runner::ExampleGroupRunner.new(self.options)
+        child_runner_options = self.options
+        Spec::Runner::ExampleGroupRunner.new(child_runner_options)
       end
       
       def child_output_path(pid, output_path = nil)        
