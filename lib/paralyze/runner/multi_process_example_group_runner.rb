@@ -31,7 +31,9 @@ module Paralyze
       
       def child_runner(pid, file_paths)
         child_runner_options = self.options
-        Spec::Runner::ExampleGroupRunner.new(child_runner_options)
+        child_runner = Spec::Runner::ExampleGroupRunner.new(child_runner_options)
+        child_runner.load_files file_paths
+        child_runner
       end
       
       def child_output_path(pid, output_path = nil)        
