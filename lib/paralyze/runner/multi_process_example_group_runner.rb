@@ -16,7 +16,7 @@ module Paralyze
       
       def load_files(file_paths)
         self.example_group_runner_file_path_partitions = []        
-        partition_balanced( concurrent_processes(file_paths.size), file_paths ).each do |file_path_partition|
+        file_paths.partition_balanced( concurrent_processes(file_paths.size) ).each do |file_path_partition|
           self.example_group_runner_file_path_partitions << file_path_partition
         end
       end
@@ -31,23 +31,6 @@ module Paralyze
       
       def child_output_path(pid, output_path = nil)        
         output_path ? "#{output_path}.#{pid}.paralyze" : "#{pid}.paralyze"
-      end
-      
-      def partition_balanced(number_of_splits, array)    
-        # TODO: Refactor this inefficient gremlin mercilessly
-        partitions = (1..number_of_splits).map { [] }
-        non_destructive_clone = array.clone
-        until non_destructive_clone.empty? do
-          partitions.each do |partition|
-            partition << non_destructive_clone.shift unless non_destructive_clone.empty?
-          end
-        end
-        index = 0
-        partitions.map do |partition| 
-          current_index = index
-          index += partition.size
-          array[current_index...(partition.size + current_index)] 
-        end
       end
       
       def concurrent_processes(number_of_files)

@@ -19,14 +19,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#load_files" do
   end
   
   it "should use concurrent_processes" do
-    pending
-    @multi_process_example_group_runner.should_receive(:balance_file_groups)
-    @multi_process_example_group_runner.load_files(@options.files_to_load)    
-  end
-  
-  it "should use the partition_balanced" do
-    pending
-    @multi_process_example_group_runner.should_receive(:partition_balanced)
+    @multi_process_example_group_runner.should_receive(:concurrent_processes).and_return(3)
     @multi_process_example_group_runner.load_files(@options.files_to_load)    
   end
 end
