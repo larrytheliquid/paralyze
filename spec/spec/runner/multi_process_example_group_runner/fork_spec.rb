@@ -13,7 +13,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#fork" do
 
     it "should exit the fork'd process with an existstatus of 0 (successful)" do
       pid = @multi_process_example_group_runner.fork { "hardcore forking action" }
-      Process.waitpid2(pid).last.should == 0
+      Process.waitpid2(pid).last.exitstatus.should be_zero
     end
   end
   
@@ -25,7 +25,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#fork" do
 
     it "should exit the fork'd process with an existstatus of 0 (successful)" do
       pid = @multi_process_example_group_runner.fork { raise Exception }
-      Process.waitpid2(pid).last.should == 0
+      Process.waitpid2(pid).last.exitstatus.should be_zero
     end
   end  
 end

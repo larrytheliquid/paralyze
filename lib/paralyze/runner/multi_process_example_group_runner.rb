@@ -29,8 +29,8 @@ module Paralyze
         options.files_to_load
       end
       
-      def child_output_path(pid)        
-        "default.#{pid}.paralyze"
+      def child_output_path(pid, output_path = nil)        
+        output_path ? "#{output_path}.#{pid}.paralyze" : "#{pid}.paralyze"
       end
     end
   end
