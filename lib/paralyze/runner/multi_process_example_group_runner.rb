@@ -44,7 +44,7 @@ module Paralyze
       end
       
       def concurrent_processes(number_of_files)
-        [maximum_processes, number_of_files].min
+        [maximum_processes.to_i, number_of_files].min
       end
       
       def fork
