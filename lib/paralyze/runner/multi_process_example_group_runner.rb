@@ -15,13 +15,18 @@ module Paralyze
         super(file_paths)
         @partitioned_example_groups = @options.example_groups.partition_balanced( concurrent_processes(@options.example_groups.size) )
       end
-    
+      
       def run
-        # enumerate through all example_group_runner_file_path_partitions
-        # test with mock forker
-        # fork child_runners and run them
-        # reduce success variable
-        @options.run_examples
+        prepare
+        success = true
+        partitioned_example_groups.each do |partition|
+          partition.each do |example_group|
+            success = success & example_group.run
+          end          
+        end
+        return success
+      ensure
+        finish
       end
       
       def child_output_path(pid, output_path = nil)        
