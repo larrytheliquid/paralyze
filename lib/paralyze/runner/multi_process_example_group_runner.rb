@@ -20,9 +20,11 @@ module Paralyze
         prepare
         success = true
         partitioned_example_groups.each do |partition|
-          partition.each do |example_group|
-            success = success & example_group.run
-          end          
+          fork { partition.each {|example_group| example_group.run } }
+        end
+        partitioned_example_groups.size.times do
+          pid, status = Process.waitpid2
+          success &&= status.exitstatus.zero?
         end
         return success
       ensure
