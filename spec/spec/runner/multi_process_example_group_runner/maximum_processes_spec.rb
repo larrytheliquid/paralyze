@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#maximum_processes" do  
   describe "for an instance passed nothing" do
     before(:each) do
-      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([])
+      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil)
     end
     
     it "should be Paralyze::Runner::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES" do
@@ -13,7 +13,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#maximum_processes" 
   
   describe "for an instance passed nil" do
     before(:each) do
-      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([], nil)
+      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil, nil)
     end
     
     it "should be Paralyze::Runner::MultiProcessExampleGroupRunner::DEFAULT_MAXIMUM_PROCESSES" do
@@ -23,7 +23,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#maximum_processes" 
   
   describe "for an instance passed a number" do
     before(:each) do
-      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([], 1337)
+      @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil, 1337)
     end
     
     it "should be what was initialized" do

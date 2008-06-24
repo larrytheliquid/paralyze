@@ -24,18 +24,6 @@ module Paralyze
         @options.run_examples
       end
       
-      # # TODO: Refactor this hella ugly method. 
-      # # Probably go with a custom OptionsParser that you pass in self.options.argv
-      # def child_options(pid, file_paths)
-      #   child_options = self.options.clone
-      #   child_options.instance_variable_set(:@files, file_paths)
-      #   child_options.user_input_for_runner = nil
-      #   child_format_options = child_options.instance_variable_get(:@format_options)
-      #   child_format_options[1] = child_output_path(pid)
-      #   child_options.instance_variable_set(:@format_options, child_format_options)
-      #   child_options
-      # end
-      
       def child_output_path(pid, output_path = nil)        
         output_path ? "#{output_path}.#{pid}.paralyze" : "#{pid}.paralyze"
       end

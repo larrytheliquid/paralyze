@@ -4,7 +4,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#concurrent_processe
   describe "with an integer maximum processes" do
     describe "when the maximum processes is equal to the number of spec files" do
       before(:each) do
-        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([SpecHelper.fixtures_path,"-p","**/*.rb"], 3)
+        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil, 3)
       end
 
       it "should be the number of spec files" do
@@ -14,7 +14,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#concurrent_processe
 
     describe "when maximum processes is less than the number of spec files" do
       before(:each) do
-        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([SpecHelper.fixtures_path,"-p","**/*.rb"], 3)
+        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil, 3)
       end
 
       it "should be the maximum processes" do
@@ -24,7 +24,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#concurrent_processe
 
     describe "when number of spec files is less than the maximum processes" do
       before(:each) do
-        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([SpecHelper.fixtures_path,"-p","**/*.rb"], 4)
+        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil, 4)
       end
 
       it "should be the number of spec files" do
@@ -36,7 +36,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#concurrent_processe
   describe "with a string maximum processes" do
     describe "when the maximum processes is equal to the number of spec files" do
       before(:each) do
-        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([SpecHelper.fixtures_path,"-p","**/*.rb"], "3")
+        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil, "3")
       end
 
       it "should be the number of spec files" do
@@ -46,7 +46,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#concurrent_processe
 
     describe "when maximum processes is less than the number of spec files" do
       before(:each) do
-        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([SpecHelper.fixtures_path,"-p","**/*.rb"], "3")
+        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil, "3")
       end
 
       it "should be the maximum processes" do
@@ -56,7 +56,7 @@ describe Paralyze::Runner::MultiProcessExampleGroupRunner, "#concurrent_processe
 
     describe "when number of spec files is less than the maximum processes" do
       before(:each) do
-        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new([SpecHelper.fixtures_path,"-p","**/*.rb"], "4")
+        @multi_process_example_group_runner = Paralyze::Runner::MultiProcessExampleGroupRunner.new(nil, "4")
       end
 
       it "should be the number of spec files" do
